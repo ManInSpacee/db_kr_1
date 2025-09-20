@@ -9,7 +9,7 @@ class InsertDialog(QDialog):
         layout.addWidget(QLabel("Форма для вставки данных"))
         self.setLayout(layout)
 
-
+#GOVNO ASS
 class ShowDialog(QDialog):
     def __init__(self):
         super().__init__()
