@@ -6,7 +6,7 @@ class InsertDialog(QDialog):
         super().__init__()
         self.setWindowTitle("Вставить govno")
         layout = QVBoxLayout()
-        layout.addWidget(QLabel("Форма для вставки данных"))
+        layout.addWidget(QLabel("Форма для penis"))
         self.setLayout(layout)
 
 
