@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QLabel, QVBoxLay
 class InsertDialog(QDialog):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Вставить данные")
+        self.setWindowTitle("Вставить govno")
         layout = QVBoxLayout()
         layout.addWidget(QLabel("Форма для вставки данных"))
         self.setLayout(layout)
