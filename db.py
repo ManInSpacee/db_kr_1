@@ -100,8 +100,8 @@ def query_runs(filter_attack_type=None, since=None, min_packet_rate=None):
                r.severity,
                r.detected,
                r.run_time
-        FROM mlops_ddos.runs r
-        JOIN mlops_ddos.experiments e ON r.experiment_id = e.experiment_id
+        FROM postgres.runs r
+        JOIN postgres.experiments e ON r.experiment_id = e.experiment_id
         WHERE 1=1
     """
     params = []

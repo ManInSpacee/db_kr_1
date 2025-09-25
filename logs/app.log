@@ -160,3 +160,69 @@ psycopg2.errors.DuplicateObject: type "attack_type" already exists
 2025-09-25 23:00:25,474 INFO db: DDL script executed successfully.
 2025-09-25 23:00:25,474 INFO app: Schema created by user action
 2025-09-25 23:00:48,752 INFO db: Inserted experiment_id=1 run_id=1
+2025-09-25 23:23:35,187 INFO db: DDL script executed successfully.
+2025-09-25 23:23:35,187 INFO app: Schema created by user action
+2025-09-25 23:24:15,787 INFO db: Inserted experiment_id=1 run_id=1
+2025-09-25 23:26:46,179 INFO db: DDL script executed successfully.
+2025-09-25 23:26:46,179 INFO app: Schema created by user action
+2025-09-25 23:26:51,758 ERROR db: Error inserting data: invalid input value for enum attack_type: "asd"
+LINE 4:             ) VALUES (1, ARRAY['asd']::postgres.attack_type[...
+                                       ^
+
+2025-09-25 23:26:51,758 ERROR app: Ошибка при вставке данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 92, in on_insert
+    exp_id, run_id = db.insert_experiment_and_run(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        experiment_name=name,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        detected=detected
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 67, in insert_experiment_and_run
+    cur.execute("""
+    ~~~~~~~~~~~^^^^
+        INSERT INTO postgres.runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        RETURNING run_id;
+        ^^^^^^^^^^^^^^^^^
+    """, (experiment_id, attack_types_list, source_ip_list, packet_rate, severity, detected))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.InvalidTextRepresentation: invalid input value for enum attack_type: "asd"
+LINE 4:             ) VALUES (1, ARRAY['asd']::postgres.attack_type[...
+                                       ^
+
+2025-09-25 23:27:06,193 ERROR db: Error inserting data: invalid input syntax for type inet: "asd"
+LINE 4: ...LOOD','SYN_FLOOD']::postgres.attack_type[], ARRAY['asd']::in...
+                                                             ^
+
+2025-09-25 23:27:06,193 ERROR app: Ошибка при вставке данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 92, in on_insert
+    exp_id, run_id = db.insert_experiment_and_run(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        experiment_name=name,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        detected=detected
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 67, in insert_experiment_and_run
+    cur.execute("""
+    ~~~~~~~~~~~^^^^
+        INSERT INTO postgres.runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        RETURNING run_id;
+        ^^^^^^^^^^^^^^^^^
+    """, (experiment_id, attack_types_list, source_ip_list, packet_rate, severity, detected))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type inet: "asd"
+LINE 4: ...LOOD','SYN_FLOOD']::postgres.attack_type[], ARRAY['asd']::in...
+                                                             ^
+
+2025-09-25 23:27:21,612 INFO db: Inserted experiment_id=3 run_id=1
