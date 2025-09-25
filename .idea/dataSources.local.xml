@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PY-252.25557.178">
-    <data-source name="postgres@localhost" uuid="76548a49-ca43-401d-835b-70101954adfd">
+    <data-source name="postgres@localhost" uuid="a688993c-2dce-411c-bcd2-e12b06ffd03b">
       <database-info product="PostgreSQL" version="17.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.7.3" dbms="POSTGRES" exact-version="17.6" exact-driver-version="42.7">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -14,8 +14,8 @@
             <node kind="database" qname="@">
               <node kind="schema" qname="@" />
             </node>
-            <node kind="database" qname="mydb">
-              <node kind="schema" qname="public" />
+            <node kind="database" qname="postgres">
+              <node kind="schema" name="postgres" negative="1" />
             </node>
           </node>
         </introspection-scope>

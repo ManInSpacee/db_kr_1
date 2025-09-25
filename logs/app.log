@@ -1,0 +1,162 @@
+2025-09-25 22:17:03,563 INFO db: DDL script executed successfully.
+2025-09-25 22:17:03,564 INFO app: Schema created by user action
+2025-09-25 22:18:02,840 ERROR db: Error inserting data: invalid input value for enum mlops_ddos.attack_type: "UDP_BRUTEFORCE"
+LINE 4:             ) VALUES (1, ARRAY['UDP_FLOOD','UDP_BRUTEFORCE']...
+                                                   ^
+
+2025-09-25 22:18:02,840 ERROR app: Ошибка при вставке данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 93, in on_insert
+    exp_id, run_id = db.insert_experiment_and_run(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        experiment_name=name,
+        ^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+        detected=detected
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 67, in insert_experiment_and_run
+    cur.execute("""
+    ~~~~~~~~~~~^^^^
+        INSERT INTO mlops_ddos.runs (
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        RETURNING run_id;
+        ^^^^^^^^^^^^^^^^^
+    """, (experiment_id, attack_types_list, source_ip_list, packet_rate, severity, detected))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.InvalidTextRepresentation: invalid input value for enum mlops_ddos.attack_type: "UDP_BRUTEFORCE"
+LINE 4:             ) VALUES (1, ARRAY['UDP_FLOOD','UDP_BRUTEFORCE']...
+                                                   ^
+
+2025-09-25 22:18:17,672 INFO db: Inserted experiment_id=2 run_id=1
+2025-09-25 22:18:19,993 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 152, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:18:52,163 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:18:59,173 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 152, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:22:01,160 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 152, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:23:26,423 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:23:32,484 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:23:35,305 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:31:10,329 ERROR db: Error executing script: type "attack_type" already exists
+
+2025-09-25 22:31:10,329 ERROR app: Error creating schema
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 195, in create_schema
+    db.execute_script(sql_text)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 31, in execute_script
+    cur.execute(sql_text)
+    ~~~~~~~~~~~^^^^^^^^^^
+psycopg2.errors.DuplicateObject: type "attack_type" already exists
+
+2025-09-25 22:31:21,117 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:31:27,918 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:43:55,483 INFO db: DDL script executed successfully.
+2025-09-25 22:43:55,483 INFO app: Schema created by user action
+2025-09-25 22:44:47,128 INFO db: Inserted experiment_id=1 run_id=1
+2025-09-25 22:44:48,791 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:44:51,965 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:45:12,199 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 156, in load_data
+    rows = db.query_runs(
+        filter_attack_type=attack_type,
+        since=since_qt,
+        min_packet_rate=min_rate
+    )
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 115, in query_runs
+    cur.execute(sql, params)
+    ~~~~~~~~~~~^^^^^^^^^^^^^
+psycopg2.errors.InvalidTextRepresentation: invalid input value for enum attack_type: "SYN_FLOOD,UDP_FLOOD"
+LINE 7:          AND 'SYN_FLOOD,UDP_FLOOD' = ANY(r.attack_types)  AN...
+                     ^
+
+2025-09-25 22:45:17,658 INFO app: Loaded 1 rows for show dialog
+2025-09-25 22:45:35,272 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:45:44,173 ERROR app: Ошибка при получении данных
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 161, in load_data
+    rows = db.query_runs(filter_attack_type=attack_type, since=since_qt, min_packet_rate=min_rate if min_rate>0 else None)
+                                                                                                     ^^^^^^^^^^
+TypeError: '>' not supported between instances of 'NoneType' and 'int'
+2025-09-25 22:45:48,651 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:55,437 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:56,703 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:56,946 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:57,136 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:57,339 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:57,514 INFO app: Loaded 0 rows for show dialog
+2025-09-25 22:45:59,670 INFO app: Loaded 1 rows for show dialog
+2025-09-25 22:52:58,314 ERROR db: Error executing script: type "attack_type" already exists
+
+2025-09-25 22:52:58,314 ERROR app: Error creating schema
+Traceback (most recent call last):
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\App.py", line 193, in create_schema
+    db.execute_script(sql_text)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\pale_avenger\PycharmProjects\db_kr_1\db.py", line 31, in execute_script
+    cur.execute(sql_text)
+    ~~~~~~~~~~~^^^^^^^^^^
+psycopg2.errors.DuplicateObject: type "attack_type" already exists
+
+2025-09-25 22:59:29,907 INFO db: DDL script executed successfully.
+2025-09-25 22:59:29,907 INFO app: Schema created by user action
+2025-09-25 23:00:25,474 INFO db: DDL script executed successfully.
+2025-09-25 23:00:25,474 INFO app: Schema created by user action
+2025-09-25 23:00:48,752 INFO db: Inserted experiment_id=1 run_id=1
